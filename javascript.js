@@ -8,10 +8,19 @@ let humanScore = 0;
 
 // Create a function for computer choice
 function computerChoice () {
-    
+    // Ask for computer input from one to three
+    let computerInput = Math.floor(Math.random() * 3 + 1);
+
+    // One is for paper; Two is for rock; Three is for scissors
+    if (computerInput == 1) {
+        computerInput = "paper";
+    } else if (computerInput == 2) {
+        computerInput = "rock";
+    } else {
+        computerInput = "scissors";
+    }
 }
-// Ask for computer input from one to three
-// One is for paper; Two is for rock; Three is for scissors
+
 
 // Ask for human input: rock, paper, or scissors
 // Make sure it is case-insensitive
