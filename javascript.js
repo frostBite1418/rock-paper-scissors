@@ -23,6 +23,7 @@ function getComputerChoice() {
         computerInput = "scissors";
         break
    }
+   console.log(computerInput)
    return computerInput;
 }
 
@@ -35,36 +36,54 @@ function getHumanChoice() {
     humanInput = humanInput.toLowerCase();
 
     // Ask again if humanInput is invalid (implement this at a later time)
+    console.log(humanInput);
     return humanInput;
 }
 
 function playRound(humanChoice, computerChoice) {
     // Compare human input from computer input
     // if human input and computer input is the same, it is a tie
-     // alert tie
-     // no points added
+    if (humanChoice == computerChoice) {
+        // alert tie
+        // no points added
+        alert(`Tie! You and the AI chose ${computerChoice}.`);
+    }
     // Write winning condition 1: paper vs rock
+    else if (humanChoice == "paper" && computerChoice == "rock") {
         // alert you won
+        alert(`You won! You chose ${humanChoice}. AI chose ${computerChoice}.`);
         // add points
+        humanScore++;
+    }
+        
     // Write winning condition 2: scissors vs paper
+    else if (humanChoice == "scissors" && computerChoice == "paper") {
         // alert you won
+        alert(`You won! You chose ${humanChoice}. AI chose ${computerChoice}.`);
         // add points
+        humanScore++;
+    }
+
     // Write winning condition 3: rock vs scissors
+    else if (humanChoice == "rock" && computerChoice == "scissors") {
         // alert you won
+        alert(`You won! You chose ${humanChoice}. AI chose ${computerChoice}.`);
         // add points
+        humanScore++;
+    }
+
     // Else, you lose and computer gains a point;
+    else {
         // alert you lose
+        alert(`You lost! You chose ${humanChoice}. AI chose ${computerChoice}.`);
         // add computer points
+        computerScore++;
+    }
 }
 
 
-// Call both variables geHumanChoice and getComputerChoice
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-// Call playRound function
-playRound(humanSelection, computerSelection);
 
-
+// Create a function called play game
 // Create a while loop until any score reaches five
     // if human score equals to five
         // alert you win
