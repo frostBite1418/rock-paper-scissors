@@ -6,6 +6,10 @@ let computerScore = 0;
 // Set up human score
 let humanScore = 0;
 
+// Create a function for computer choice
+function computerChoice () {
+    
+}
 // Ask for computer input from one to three
 // One is for paper; Two is for rock; Three is for scissors
 
