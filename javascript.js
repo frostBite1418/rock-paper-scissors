@@ -7,7 +7,7 @@ let computerScore = 0;
 let humanScore = 0;
 
 // Create a function for computer choice
-function computerChoice() {
+function getComputerChoice() {
     // Ask for computer input from one to three
     let computerInput = Math.floor(Math.random() * 3 + 1);
 
@@ -27,7 +27,7 @@ function computerChoice() {
 }
 
 // Create a function for human choice
-function humanChoice() {
+function getHumanChoice() {
     // Ask for human input: paper(1), rock(2), or scissors(3)
     let humanInput = prompt("Rock, paper, or scissors? Type the word correctly.")
 
@@ -35,16 +35,11 @@ function humanChoice() {
     humanInput = humanInput.toLowerCase();
 
     // Ask again if humanInput is invalid (implement this at a later time)
-    //
-    
     return humanInput;
 }
 
-humanChoice();
-
-
-
-// Compare human input from computer input
+function playRound(humanChoice, computerChoice) {
+    // Compare human input from computer input
     // if human input and computer input is the same, it is a tie
      // alert tie
      // no points added
@@ -60,6 +55,15 @@ humanChoice();
     // Else, you lose and computer gains a point;
         // alert you lose
         // add computer points
+}
+
+
+// Call both variables geHumanChoice and getComputerChoice
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+// Call playRound function
+playRound(humanSelection, computerSelection);
+
 
 // Create a while loop until any score reaches five
     // if human score equals to five
