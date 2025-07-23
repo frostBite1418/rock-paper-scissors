@@ -28,11 +28,19 @@ function computerChoice() {
 
 // Create a function for human choice
 function humanChoice() {
-    // Ask for human input: rock, paper, or scissors
+    // Ask for human input: paper(1), rock(2), or scissors(3)
+    let humanInput = prompt("Rock, paper, or scissors? Type the word correctly.")
+
+    // Make human input case insensitive
+    humanInput = humanInput.toLowerCase();
+
+    // Ask again if humanInput is invalid (implement this at a later time)
+    //
     
-    // Make sure it is case-insensitive
-    // Ask to retype if their answer is invalid
+    return humanInput;
 }
+
+humanChoice();
 
 
 
