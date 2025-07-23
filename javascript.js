@@ -23,13 +23,18 @@ function computerChoice() {
         computerInput = "scissors";
         break
    }
+   return computerInput;
+}
+
+// Create a function for human choice
+function humanChoice() {
+    // Ask for human input: rock, paper, or scissors
+    
+    // Make sure it is case-insensitive
+    // Ask to retype if their answer is invalid
 }
 
 
-
-// Ask for human input: rock, paper, or scissors
-// Make sure it is case-insensitive
-// Ask to retype if their answer is invalid
 
 // Compare human input from computer input
     // if human input and computer input is the same, it is a tie
