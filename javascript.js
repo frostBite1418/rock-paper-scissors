@@ -23,7 +23,6 @@ function getComputerChoice() {
         computerInput = "scissors";
         break
    }
-   console.log(computerInput)
    return computerInput;
 }
 
@@ -36,7 +35,6 @@ function getHumanChoice() {
     humanInput = humanInput.toLowerCase();
 
     // Ask again if humanInput is invalid (implement this at a later time)
-    console.log(humanInput);
     return humanInput;
 }
 
@@ -81,12 +79,31 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+// Play the whole game
+function playGame() {
+    // Loop the game five times to play five rounds
+    for (let i = 1; i <= 5; i++) {
+        // Call getHumanChoice and getComputerChoice to run the functions
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+        
+        // Call playRound function to analyze the winner and tally score
+        playRound(humanSelection, computerSelection);
+    }
 
+    // Announce the winner
+    // If human score is higher than computer score, alert human wins
+    if (humanScore > computerScore) {
+        alert("You won the game against AI.");
+    }
+    // If scores are the same, it is a tie
+    else if (humanScore == computerScore) {
+        alert("You tied against an AI.");
+    }
+    // Else, human loses
+    else {
+        alert("You lost against AI. Take that.");
+    }
+}
 
-// Create a function called play game
-// Create a while loop until any score reaches five
-    // if human score equals to five
-        // alert you win
-    // else
-        // you lose
-
+playGame();
