@@ -82,14 +82,14 @@ function playRound(humanChoice, computerChoice) {
 // Play the whole game
 function playGame() {
     // Loop the game five times to play five rounds
-    for (let i = 1; i <= 5; i++) {
-        // Call getHumanChoice and getComputerChoice to run the functions
-        let humanSelection = getHumanChoice();
-        let computerSelection = getComputerChoice();
+    
+    // Call getHumanChoice and getComputerChoice to run the functions
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
         
-        // Call playRound function to analyze the winner and tally score
-        playRound(humanSelection, computerSelection);
-    }
+    // Call playRound function to analyze the winner and tally score
+    playRound(humanSelection, computerSelection);
+    
 
     // Announce the winner
     // If human score is higher than computer score, alert human wins
