@@ -1,3 +1,5 @@
+alert("Play a game of rock-paper-scissors against AI. First to five wins.\n\nTo restart to zero when you reach five, click any of the choice buttons.")
+
 const paperButton = document.querySelector(".paper");
 const scissorsButton = document.querySelector(".scissors");
 const rockButton = document.querySelector(".rock");
@@ -46,45 +48,54 @@ function getComputerChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    // Compare human input from computer input
-    // if human input and computer input is the same, it is a tie
-    displayHumanGraphics.textContent = humanChoice;
-    displayComputerGraphics.textContent = computerChoice;
 
-    if (humanChoice == computerChoice) {
-        // alert tie
-        // no points added
-        displayTextContent.textContent = `Tie. You chose ${humanChoice}. AI chose ${computerChoice}`;
-    }
-    // Write winning condition 1: paper vs rock
-    else if (humanChoice == "paper" && computerChoice == "rock") {
-        // add points
-        humanScore++;
-        displayHumanScore.textContent = humanScore;
-        displayTextContent.textContent = `You win. You chose ${humanChoice}. AI chose ${computerChoice}`;
-    }
-        
-    // Write winning condition 2: scissors vs paper
-    else if (humanChoice == "scissors" && computerChoice == "paper") {
-        // add points
-        humanScore++;
-        displayHumanScore.textContent = humanScore;
-        displayTextContent.textContent = `You win. You chose ${humanChoice}. AI chose ${computerChoice}`;
-    }
+    // Check if any score has reached five. If it has, game will stop.
+    if (!(humanScore === 5 || computerScore === 5)) {
+        displayHumanGraphics.textContent = humanChoice;
+        displayComputerGraphics.textContent = computerChoice;
 
-    // Write winning condition 3: rock vs scissors
-    else if (humanChoice == "rock" && computerChoice == "scissors") {
-        // add points
-        humanScore++;
-        displayHumanScore.textContent = humanScore;
-        displayTextContent.textContent = `You win. You chose ${humanChoice}. AI chose ${computerChoice}`;
-    }
+        // compare input to declare who wins and who loses
+        if (humanChoice == computerChoice) {
+            // alert tie
+            // no points added
+            displayTextContent.textContent = `Tie. You chose ${humanChoice}. AI chose ${computerChoice}`;
+        }
+        // Write winning condition 1: paper vs rock
+        else if (humanChoice == "paper" && computerChoice == "rock") {
+            // add points
+            humanScore++;
+            displayHumanScore.textContent = humanScore;
+            displayTextContent.textContent = `You win. You chose ${humanChoice}. AI chose ${computerChoice}`;
+        }
+            
+        // Write winning condition 2: scissors vs paper
+        else if (humanChoice == "scissors" && computerChoice == "paper") {
+            // add points
+            humanScore++;
+            displayHumanScore.textContent = humanScore;
+            displayTextContent.textContent = `You win. You chose ${humanChoice}. AI chose ${computerChoice}`;
+        }
 
-    // Else, you lose and computer gains a point;
-    else {
-        // add computer points
-        computerScore++;
+        // Write winning condition 3: rock vs scissors
+        else if (humanChoice == "rock" && computerChoice == "scissors") {
+            // add points
+            humanScore++;
+            displayHumanScore.textContent = humanScore;
+            displayTextContent.textContent = `You win. You chose ${humanChoice}. AI chose ${computerChoice}`;
+        }
+
+        // Else, you lose and computer gains a point;
+        else {
+            // add computer points
+            computerScore++;
+            displayComputerScore.textContent = computerScore;
+            displayTextContent.textContent = `You lose. You chose ${humanChoice}. AI chose ${computerChoice}`;
+        }
+    } else {
+        humanScore = 0;
+        computerScore = 0;
+        displayHumanScore.textContent = humanScore;
         displayComputerScore.textContent = computerScore;
-        displayTextContent.textContent = `You lose. You chose ${humanChoice}. AI chose ${computerChoice}`;
     }
+
 }
