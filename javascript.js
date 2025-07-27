@@ -11,6 +11,9 @@ let displayComputerScore = document.querySelector("#displayComputerScore");
 let displayHumanGraphics = document.querySelector(".human-rps-choice");
 let displayComputerGraphics = document.querySelector(".computer-rps-choice");
 
+// display text content: did you win or lose?
+let displayTextContent = document.querySelector(".textScore");
+
 // Set up computer score
 let computerScore = 0
 
@@ -51,13 +54,14 @@ function playRound(humanChoice, computerChoice) {
     if (humanChoice == computerChoice) {
         // alert tie
         // no points added
-        alert(`Tie! You and the AI chose ${computerChoice}.`);
+        displayTextContent.textContent = `Tie. You chose ${humanChoice}. AI chose ${computerChoice}`;
     }
     // Write winning condition 1: paper vs rock
     else if (humanChoice == "paper" && computerChoice == "rock") {
         // add points
         humanScore++;
         displayHumanScore.textContent = humanScore;
+        displayTextContent.textContent = `You win. You chose ${humanChoice}. AI chose ${computerChoice}`;
     }
         
     // Write winning condition 2: scissors vs paper
@@ -65,6 +69,7 @@ function playRound(humanChoice, computerChoice) {
         // add points
         humanScore++;
         displayHumanScore.textContent = humanScore;
+        displayTextContent.textContent = `You win. You chose ${humanChoice}. AI chose ${computerChoice}`;
     }
 
     // Write winning condition 3: rock vs scissors
@@ -72,6 +77,7 @@ function playRound(humanChoice, computerChoice) {
         // add points
         humanScore++;
         displayHumanScore.textContent = humanScore;
+        displayTextContent.textContent = `You win. You chose ${humanChoice}. AI chose ${computerChoice}`;
     }
 
     // Else, you lose and computer gains a point;
@@ -79,5 +85,6 @@ function playRound(humanChoice, computerChoice) {
         // add computer points
         computerScore++;
         displayComputerScore.textContent = computerScore;
+        displayTextContent.textContent = `You lose. You chose ${humanChoice}. AI chose ${computerChoice}`;
     }
 }
