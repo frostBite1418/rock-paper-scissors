@@ -11,8 +11,25 @@ body {
 /* top display */
 .top-display{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 150px;
+}
+
+.left-ui,
+.right-ui {
+    display: flex;
+    align-items: center;
+}
+
+.left-ui .score {
+    margin: 50px 0px 0px 50px;
+    font-size: 50px;
+}
+
+.right-ui .score {
+    margin: 50px 50px 0 0;
+    font-size: 50px;
 }
 
 .rps-choice {
@@ -20,8 +37,24 @@ body {
     border: 2px solid black;
 }
 
+/* text score */
+.textScore {
+    padding: 25px;
+}
 
-
+/* buttons */
 .buttons {
     display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-basis: auto;
+    flex-wrap: wrap;
 }
+
+
+.paper,
+.scissors,
+.rock {
+    padding: 10px 20px;
+}
+
