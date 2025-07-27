@@ -20,6 +20,7 @@ body {
 .right-ui {
     display: flex;
     align-items: center;
+    flex-basis: auto;
 }
 
 .left-ui .score {
@@ -32,9 +33,12 @@ body {
     font-size: 50px;
 }
 
-.rps-choice {
+.human-rps-choice,
+.computer-rps-choice {
     padding: 50px;
     border: 2px solid black;
+    width: 50px;
+    height: 20px;
 }
 
 /* text score */

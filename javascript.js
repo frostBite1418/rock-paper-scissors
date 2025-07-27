@@ -3,11 +3,13 @@ const scissorsButton = document.querySelector(".scissors");
 const rockButton = document.querySelector(".rock");
 const textScore = document.querySelector(".textScore");
 
-// display score
+// display score variables
 let displayHumanScore = document.querySelector("#displayHumanScore");
 let displayComputerScore = document.querySelector("#displayComputerScore");
 
-
+// display text in illustration boxes variables
+let displayHumanGraphics = document.querySelector(".human-rps-choice");
+let displayComputerGraphics = document.querySelector(".computer-rps-choice");
 
 // Set up computer score
 let computerScore = 0
@@ -43,6 +45,9 @@ function getComputerChoice() {
 function playRound(humanChoice, computerChoice) {
     // Compare human input from computer input
     // if human input and computer input is the same, it is a tie
+    displayHumanGraphics.textContent = humanChoice;
+    displayComputerGraphics.textContent = computerChoice;
+
     if (humanChoice == computerChoice) {
         // alert tie
         // no points added
@@ -50,8 +55,6 @@ function playRound(humanChoice, computerChoice) {
     }
     // Write winning condition 1: paper vs rock
     else if (humanChoice == "paper" && computerChoice == "rock") {
-        // alert you won
-        alert(`You won! You chose ${humanChoice}. AI chose ${computerChoice}.`);
         // add points
         humanScore++;
         displayHumanScore.textContent = humanScore;
@@ -59,8 +62,6 @@ function playRound(humanChoice, computerChoice) {
         
     // Write winning condition 2: scissors vs paper
     else if (humanChoice == "scissors" && computerChoice == "paper") {
-        // alert you won
-        alert(`You won! You chose ${humanChoice}. AI chose ${computerChoice}.`);
         // add points
         humanScore++;
         displayHumanScore.textContent = humanScore;
@@ -68,8 +69,6 @@ function playRound(humanChoice, computerChoice) {
 
     // Write winning condition 3: rock vs scissors
     else if (humanChoice == "rock" && computerChoice == "scissors") {
-        // alert you won
-        alert(`You won! You chose ${humanChoice}. AI chose ${computerChoice}.`);
         // add points
         humanScore++;
         displayHumanScore.textContent = humanScore;
@@ -77,8 +76,6 @@ function playRound(humanChoice, computerChoice) {
 
     // Else, you lose and computer gains a point;
     else {
-        // alert you lose
-        alert(`You lost! You chose ${humanChoice}. AI chose ${computerChoice}.`);
         // add computer points
         computerScore++;
         displayComputerScore.textContent = computerScore;
