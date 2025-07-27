@@ -1,12 +1,24 @@
 const paperButton = document.querySelector(".paper");
 const scissorsButton = document.querySelector(".scissors");
 const rockButton = document.querySelector(".rock");
+const textScore = document.querySelector(".textScore");
+
+// display score
+let displayHumanScore = document.querySelector("#displayHumanScore");
+let displayComputerScore = document.querySelector("#displayComputerScore");
+
+
 
 // Set up computer score
-let computerScore = 0;
+let computerScore = 0
 
 // Set up human score
 let humanScore = 0;
+
+// play rounds using buttons
+paperButton.addEventListener("click", () => playRound("paper", getComputerChoice()));
+scissorsButton.addEventListener("click", () => playRound("scissors", getComputerChoice()));
+rockButton.addEventListener("click", () => playRound("rock", getComputerChoice()));
 
 // Create a function for computer choice
 function getComputerChoice() {
@@ -28,18 +40,6 @@ function getComputerChoice() {
    return computerInput;
 }
 
-// Create a function for human choice
-function getHumanChoice() {
-    // Ask for human input: paper(1), rock(2), or scissors(3)
-    let humanInput = prompt("Rock, paper, or scissors? Type the word correctly.")
-
-    // Make human input case insensitive
-    humanInput = humanInput.toLowerCase();
-
-    // Ask again if humanInput is invalid (implement this at a later time)
-    return humanInput;
-}
-
 function playRound(humanChoice, computerChoice) {
     // Compare human input from computer input
     // if human input and computer input is the same, it is a tie
@@ -54,6 +54,7 @@ function playRound(humanChoice, computerChoice) {
         alert(`You won! You chose ${humanChoice}. AI chose ${computerChoice}.`);
         // add points
         humanScore++;
+        displayHumanScore.textContent = humanScore;
     }
         
     // Write winning condition 2: scissors vs paper
@@ -62,6 +63,7 @@ function playRound(humanChoice, computerChoice) {
         alert(`You won! You chose ${humanChoice}. AI chose ${computerChoice}.`);
         // add points
         humanScore++;
+        displayHumanScore.textContent = humanScore;
     }
 
     // Write winning condition 3: rock vs scissors
@@ -70,6 +72,7 @@ function playRound(humanChoice, computerChoice) {
         alert(`You won! You chose ${humanChoice}. AI chose ${computerChoice}.`);
         // add points
         humanScore++;
+        displayHumanScore.textContent = humanScore;
     }
 
     // Else, you lose and computer gains a point;
@@ -78,34 +81,6 @@ function playRound(humanChoice, computerChoice) {
         alert(`You lost! You chose ${humanChoice}. AI chose ${computerChoice}.`);
         // add computer points
         computerScore++;
+        displayComputerScore.textContent = computerScore;
     }
 }
-
-// Play the whole game
-function playGame() {
-    // Loop the game five times to play five rounds
-    
-    // Call getHumanChoice and getComputerChoice to run the functions
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
-        
-    // Call playRound function to analyze the winner and tally score
-    playRound(humanSelection, computerSelection);
-    
-
-    // Announce the winner
-    // If human score is higher than computer score, alert human wins
-    if (humanScore > computerScore) {
-        alert("You won the game against AI.");
-    }
-    // If scores are the same, it is a tie
-    else if (humanScore == computerScore) {
-        alert("You tied against an AI.");
-    }
-    // Else, human loses
-    else {
-        alert("You lost against AI. Take that.");
-    }
-}
-
-playGame();
