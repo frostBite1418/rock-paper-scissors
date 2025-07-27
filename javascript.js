@@ -1,4 +1,6 @@
-// Play one game of rock-paper scissors
+const paperButton = document.querySelector(".paper");
+const scissorsButton = document.querySelector(".scissors");
+const rockButton = document.querySelector(".rock");
 
 // Set up computer score
 let computerScore = 0;
